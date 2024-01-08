@@ -1,5 +1,5 @@
 from keras import Sequential
-from keras.src.layers import BatchNormalization, MaxPool2D, Dropout, AveragePooling2D, LSTM, Conv2D, Flatten, Dense
+from keras.src.layers import BatchNormalization, Conv2D, Flatten, Dense
 from keras.src.layers import Activation
 import keras
 import tensorflow as tf
