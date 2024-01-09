@@ -77,7 +77,7 @@ def scale_data(x_train, x_test):
 def resample(x, y):
     """ Use random oversampling to resample data."""
 
-    ros = RandomOverSampler(random_state=42, sampling_strategy=0.5)
+    ros = RandomOverSampler(random_state=42)
     data_2d = x.reshape((x.shape[0], -1))  # Reshape the 3D array to 2D for oversampling
     data_resampled, labels_resampled = ros.fit_resample(data_2d, y)
     data_resampled = data_resampled.reshape((-1, x.shape[1], x.shape[2]))  # 3D
@@ -86,6 +86,8 @@ def resample(x, y):
 
 # Evaluation
 def evaluate_model(model, x_test, y_test):
+    """ Displays different metrics for the given model: accuracy, ROC-AUC, precision, recall, f1-score, as well as
+    the confusion matrix. """
     threshold = 0.5
 
     _, test_accuracy = model.evaluate(x_test, y_test)
